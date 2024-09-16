@@ -1,0 +1,61 @@
+<div class="home-container">
+    <section (mouseover)="stopInterval()" (mouseout)="playInterval()" class="banner">
+        <div class="slideshow-container">
+
+            @for (slide of slides; track $index) {
+                @if ($index + 1 === slideIndex) {
+                    <div class="mySlides fade">
+                        <div class="numbertext">{{$index + 1}} / {{slides.length}}</div>
+                        <img [src]="slide.img" style="width:100%">
+                        <div class="bottom-content">
+                            <p class="text">{{slide.caption}}</p>
+                            <div class="dots-container" style="text-align:center">
+                                @for (slide of slides; track $index; let idx = $index) {
+                                    <span [ngClass]="{'active': slideIndex === idx + 1}" class="dot" (click)="currentSlide(idx + 1)"></span> 
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <a class="prev" (click)="plusSlides(-1)" >❮</a>
+            <a class="next" (click)="plusSlides(1)" >❯</a>
+        </div>
+    </section>
+    <section class="programs">
+        <div class="content programs-content">
+            <h2>Tu futuro en buenas manos.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin, velit at imperdiet elementum, velit quam euismod nunc, nec iaculis libero dolor a velit. Etiam non arcu eu erat faucibus blandit consectetur in diam. </p>
+            <button class="btn">
+                <span>Ver Programas</span>
+            </button>
+        </div>
+    </section>
+    <section class="recomendations">
+        <div class="content recomendations-content">
+            <h2>recomendado</h2>
+            <div class="publications">
+                <iframe class="video" src="https://www.youtube.com/embed/LfaMVlDaQ24" frameborder="0"></iframe>
+                 <div class="virtuality">
+                    <img src="images/teacher.png" alt="">
+                </div>
+                 <iframe class="video" src="https://www.youtube.com/embed/zQyrhjEAqLs" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="content news">
+        <h2>noticias</h2>
+        <ul class="news-list">
+            @for (item of [1,2,3]; track $index) {
+                <li class="news-item">
+                    <img src="images/many-students.small.png" alt="">
+                    <div class="news-content">
+                        <h4>noticia mas destacada</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin, velit at imperdiet elementum, velit quam euismod nunc, nec iaculis libero dolor a velit. Etiam non arcu eu erat faucibus blandit consectetur in diam. Quisque ut commodo ex. Ut nec sem libero.</p>
+                    </div>
+                    <button class="btn">leer mas</button>
+                </li>
+            }
+        </ul>
+    </section>
+</div>

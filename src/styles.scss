@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
+
+:root, body{
+    font-family: 'Signika Negative';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+}
+
+.btn{
+    cursor: pointer;
+    border: none;
+
+    &:disabled{
+        cursor: default;
+        opacity: 0.8;
+    }
+}
+
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
