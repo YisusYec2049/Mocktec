@@ -1,1 +1,36 @@
-<p>courses works!</p>
+<div class="courses-container">
+    <h1 class="title" >Cursos Virtuales</h1>
+    
+   <div class="content">
+        <div class="filters">
+    
+            <label class="order-by">
+                Ordenar por:
+                <select>
+                    <option value="">Vistos recientemente</option>
+                    <option value="">Nuevos primero</option>
+                    <option value="">Populares primero</option>
+                    <option value="">A-Z</option>
+                    <option value="">Z-A</option>
+                </select>
+            </label>
+    
+    
+            <div class="search-course">
+                <input type="text">
+                <i>0</i>
+            </div>
+        </div>
+        <ul class="courses-list">
+            @for (course of [1,2,3,4,5,6,7,8]; track $index) {
+                <li class="course">
+                    <a routerLink="/course/1234/lesson/1">
+                        <img class="course-image" src="images/many-students.small.png" alt="">
+                        <p class="course-title" >Lorem ipsum dolor</p>
+                        <p class="course-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta quo non, sequi sint, sunt dolor inventore adipisci voluptates iure natus repudiandae ad modi unde! Molestiae excepturi delectus sit placeat fuga?</p>
+                    </a>
+                </li>
+            }
+        </ul>
+   </div>
+</div>
