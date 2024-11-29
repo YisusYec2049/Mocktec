@@ -1,118 +1,141 @@
 .courses-container {
     .title {
-        text-transform: uppercase;
-        background: linear-gradient(318deg, rgba(193, 246, 237, 1) 0%, rgba(46, 175, 125, 1) 100%);
-        padding: 5px 20px;
-        text-align: center;
+      text-transform: uppercase;
+      background: linear-gradient(318deg, rgba(193, 246, 237, 1) 0%, rgba(46, 175, 125, 1) 100%);
+      padding: 5px 20px;
+      text-align: center;
     }
-
+  
     .content {
-        padding: 1rem 0;
-
-        .filters {
-            padding: 0.3rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .order-by {
-                select {
-                    border-radius: 15px;
-                    padding: 5px;
-                }
-            }
-
-            .search-course {
-                padding: 5px;
-                border: 1px solid black;
-                border-radius: 15px;
-
-                input {
-                    border: none;
-                    padding: 0 5px;
-
-                    &:focus, &:focus-visible {
-                        outline: none;
-                    }
-                }
-            }
+      padding: 1rem 0;
+  
+      .filters {
+        padding: 0.3rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+  
+        flex-wrap: wrap; // Permite que los elementos se acomoden en varias líneas en pantallas pequeñas
+  
+        .order-by {
+          flex: 1; // Permite que el select ocupe el ancho disponible
+          min-width: 150px;
+  
+          select {
+            width: 100%;
+            border-radius: 15px;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 14px;
+          }
         }
-
-        .courses-list {
-            list-style-type: none;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            justify-content: space-between;
-            padding: 1rem 0;
-            row-gap: 3rem;
-
-            .course {
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0px 0px 8px gray;
-                max-width: 345px;
-                cursor: pointer;
-                padding-bottom: 0.5rem;
-                transition: transform 0.3s ease;
-
-                &:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-                }
-
-                a {
-                    text-decoration: none;
-
-                    &:visited {
-                        color: inherit;
-                    }
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                        object-fit: cover;
-                        margin-bottom: 5px;
-                    }
-
-                    .course-title, .course-description {
-                        margin: 0 0.5rem;
-                        color: black;
-                    }
-
-                    .course-title {
-                        margin-bottom: 5px;
-                        font-weight: 600;
-                    }
-
-                    .course-description {
-                        font-size: 0.9rem;
-                        max-height: 3.3rem;
-                        overflow: hidden;
-                    }
-                }
+  
+        .search-course {
+          flex: 2; // Permite que el campo de búsqueda ocupe más espacio
+          min-width: 200px;
+          display: flex;
+          align-items: center;
+          padding: 5px;
+          border: 1px solid black;
+          border-radius: 15px;
+  
+          input {
+            flex: 1;
+            border: none;
+            padding: 0 5px;
+            font-size: 14px;
+  
+            &:focus, &:focus-visible {
+              outline: none;
             }
+          }
+  
+          i {
+            font-size: 1rem;
+            color: black;
+          }
         }
-    }
-    
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 5px;
       }
-      
-
+  
+      .courses-list {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem; // Espaciado entre las tarjetas
+  
+        padding: 1rem 0;
+  
+        .course {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0px 0px 8px gray;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+          }
+  
+          a {
+            text-decoration: none;
+  
+            &:visited {
+              color: inherit;
+            }
+  
+            img {
+              width: 100%;
+              height: auto;
+              object-fit: cover;
+              margin-bottom: 5px;
+            }
+  
+            .course-title {
+              margin: 0.5rem;
+              font-weight: 600;
+              color: black;
+            }
+  
+            .course-description {
+              margin: 0 0.5rem;
+              color: black;
+              font-size: 0.9rem;
+              max-height: 3.3rem;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  
+    // Media queries para ajustar el diseño a diferentes dispositivos
     @media (max-width: 768px) {
-        .courses-list {
-            grid-template-columns: repeat(2, 1fr);
-            row-gap: 2rem;
-        }
+      .filters {
+        flex-direction: column; // Coloca los filtros en columnas
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+  
+      .courses-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Ajusta el tamaño mínimo de las tarjetas
+        gap: 1.5rem; // Reduce el espaciado entre tarjetas
+      }
     }
-
+  
     @media (max-width: 480px) {
-        .courses-list {
-            grid-template-columns: 1fr;
-            row-gap: 1.5rem;
+      .filters {
+        .search-course {
+          flex-direction: column; // Pone el input y el ícono en columnas
+          align-items: stretch;
         }
+      }
+  
+      .courses-list {
+        grid-template-columns: 1fr; // Una sola tarjeta por fila en pantallas muy pequeñas
+        gap: 1rem; // Reduce más el espaciado
+      }
     }
-}
+  }
+  

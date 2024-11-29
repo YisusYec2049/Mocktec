@@ -1,89 +1,160 @@
-.lesson-container{
+.lesson-container {
     display: flex;
     flex-direction: row;
-}
-
-.view{
-    width: 70%;
-}
-
-.video{
-    width: 100%;
-    // height: ;
-    aspect-ratio: 16/9;
-}
-
-section{
-    padding: 15px;
-    padding-left: 60px;
-    display: flex ;
-    text-align: center;
-}
-
-section p{
-    padding-right: 35px;
-}
-
-.dgeneral{
-    padding: 60px;
-}
-
-.dgeneral h2{
-    padding-bottom: 20px;
-}
-
-.dgeneral p{
-    padding-bottom: 20px;
-}
-
-.r_hours{
-    display: flex;
-    padding-bottom: 20px;
-}
-.calificaciones{
-    padding-right: 55px;
-}
-
-.descript{
-    display: flex;
-}
-
-.liner_properties{
-    border:  none;
-    height: 2px;
-    background-color: #C1F6ED;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.descript p{
-    padding-right: 35px;
-    max-width: 100%;
-}
-
-.content{
-    width: 30%;
-    
-    border-left: 1px solid black;
-    padding-top: 20px;
-    align-items: center;
-    padding-bottom: 20px;
-}
-.content h2{
-    padding-left: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid black;
-}
-
-.lesson_list{
-    list-style-type: none;
-}
-
-.lesson_item{
-    padding: 30px;
-    align-items: center;
-    font-size: 20px;
-    border-bottom: 1px solid black;
-}
-
+  
+    .view {
+      width: 70%;
+    }
+  
+    .video {
+      width: 100%;
+      aspect-ratio: 16 / 9; // Mantiene la relación de aspecto 16:9 para el video
+    }
+  
+    section {
+      padding: 15px;
+      padding-left: 60px;
+      display: flex;
+      text-align: center;
+  
+      p {
+        padding-right: 35px;
+      }
+    }
+  
+    .dgeneral {
+      padding: 60px;
+  
+      h2 {
+        padding-bottom: 20px;
+      }
+  
+      p {
+        padding-bottom: 20px;
+      }
+    }
+  
+    .r_hours {
+      display: flex;
+      padding-bottom: 20px;
+    }
+  
+    .calificaciones {
+      padding-right: 55px;
+    }
+  
+    .descript {
+      display: flex;
+  
+      p {
+        padding-right: 35px;
+        max-width: 100%;
+      }
+    }
+  
+    .liner_properties {
+      border: none;
+      height: 2px;
+      background-color: #c1f6ed;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  
+    .content {
+      width: 30%;
+      border-left: 1px solid black;
+      padding-top: 20px;
+      align-items: center;
+      padding-bottom: 20px;
+  
+      h2 {
+        padding-left: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid black;
+      }
+    }
+  
+    .lesson_list {
+      list-style-type: none;
+    }
+  
+    .lesson_item {
+      padding: 30px;
+      align-items: center;
+      font-size: 20px;
+      border-bottom: 1px solid black;
+    }
+  
+    // Media queries para diseño responsive
+    @media (max-width: 1024px) {
+      .lesson-container {
+        flex-direction: column; // Cambia a diseño vertical
+      }
+  
+      .view,
+      .content {
+        width: 100%; // Ambos elementos ocupan el 100% del ancho
+        border: none; // Quita el borde entre secciones
+      }
+  
+      .content {
+        padding: 20px 10px; // Ajusta los márgenes internos
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .dgeneral {
+        padding: 40px; // Reduce el padding en pantallas medianas
+      }
+  
+      section {
+        padding: 10px;
+        padding-left: 20px;
+        flex-direction: column; // Cambia la disposición de los elementos a columna
+  
+        p {
+          padding-right: 10px; // Reduce el espacio entre párrafos
+        }
+      }
+  
+      .r_hours {
+        flex-direction: column; // Cambia a diseño vertical
+      }
+  
+      .calificaciones {
+        padding-right: 0; // Quita el margen adicional
+      }
+  
+      .descript {
+        flex-direction: column; // Cambia a diseño vertical
+  
+        p {
+          padding-right: 0;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .dgeneral {
+        padding: 20px; // Reduce aún más el padding en pantallas pequeñas
+      }
+  
+      .lesson_item {
+        font-size: 16px; // Reduce el tamaño de fuente
+        padding: 20px; // Ajusta el padding interno
+      }
+  
+      .content h2 {
+        font-size: 18px; // Reduce el tamaño del encabezado
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+  
+      .view {
+        padding: 10px; // Agrega padding interno para mantener consistencia
+      }
+    }
+  }
+  
